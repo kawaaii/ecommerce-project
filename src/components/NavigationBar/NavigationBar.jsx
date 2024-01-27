@@ -3,7 +3,7 @@ import "./NavigationBar.css";
 const NavigationBar = () => {
   return (
     <>
-      <nav>NavigationBar</nav>
+      <nav className=" flex flex-row justify-center">NavigationBar</nav>
     </>
   );
 };

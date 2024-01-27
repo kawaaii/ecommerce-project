@@ -13,7 +13,6 @@ function App() {
     <>
       <div className="me-1 mt-1 flex min-h-screen flex-col items-center">
         <NavigationBar />
-
         <main className="container flex flex-1 flex-col">
           <Router>
             <div className="flex flex-1">
