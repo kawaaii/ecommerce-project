@@ -3,6 +3,7 @@ import UserCircleIcon from "../images/icons/UserCircleIcon";
 import SunIcon from "../images/icons/SunIcon";
 import MoonIcon from "../images/icons/MoonIcon";
 import ShopIcon from "../images/icons/ShopIcon";
+import CartIcon from "../images/icons/CartIcon";
 import { useDarkMode } from "./DarkMode";
 
 const NavigationBar = () => {
@@ -29,6 +30,9 @@ const NavigationBar = () => {
         </form>
       </div>
       <div className="navBarItems flex gap-3">
+        <a href="#!" className="hover:text-[#9499ff]">
+          <CartIcon />
+        </a>
         <button href="#!" className="flex gap-2 hover:text-[#9499ff]">
           <span>
             <UserCircleIcon />
