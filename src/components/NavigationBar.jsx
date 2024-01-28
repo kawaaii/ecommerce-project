@@ -10,7 +10,7 @@ const NavigationBar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <section className="container flex items-center justify-between p-5 backdrop-blur-md">
+    <div className="fixed top-0 flex w-full items-center justify-between p-5 dark:bg-[#1e1e1e]">
       <div className="navBarLogo flex flex-row items-center gap-2">
         <ShopIcon className="text-5xl text-black dark:text-white" />
         <strong>Hamro Pasal</strong>
@@ -33,12 +33,12 @@ const NavigationBar = () => {
         <a href="#!" className="hover:text-[#9499ff]">
           <CartIcon />
         </a>
-        <button href="#!" className="flex gap-2 hover:text-[#9499ff]">
+        <div className="flex gap-2 hover:text-[#9499ff]">
           <span>
             <UserCircleIcon />
           </span>
           Login / Register
-        </button>
+        </div>
         <button
           onClick={toggleDarkMode}
           className="rounded-full"
@@ -47,7 +47,7 @@ const NavigationBar = () => {
           {isDarkMode ? <MoonIcon /> : <SunIcon />}
         </button>
       </div>
-    </section>
+    </div>
   );
 };
 

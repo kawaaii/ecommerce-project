@@ -15,7 +15,7 @@ function App() {
         <NavigationBar />
         <main className="container flex flex-1 flex-col">
           <Router>
-            <section className="flex flex-1">
+            <section className="flex flex-1 pt-20">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="*" element={<PageNotFound />} />
