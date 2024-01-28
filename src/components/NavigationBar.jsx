@@ -10,10 +10,12 @@ const NavigationBar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <div className="fixed top-0 flex w-full items-center justify-between border-b border-black bg-slate-100 p-5 dark:border-white dark:bg-neutral-900">
-      <a href="/" className="navBarLogo flex flex-row items-center gap-2">
-        <ShopIcon className="text-5xl text-black dark:text-white" />
-        <strong>Hamro Pasal</strong>
+    <div className="fixed top-0 flex w-full items-center justify-between border-b border-black bg-slate-100 p-3 dark:border-white dark:bg-neutral-900">
+      <a href="/" className="navBarLogo flex items-center gap-2">
+        <ShopIcon className="text-4xl text-black dark:text-white" />
+        <strong className="text-lg text-black dark:text-white">
+          Hamro Pasal
+        </strong>
       </a>
       <div className="searchBar">
         <form className="flex gap-1 align-middle" action="#!">
@@ -24,16 +26,22 @@ const NavigationBar = () => {
               placeholder="WIP"
             />
             <button type="submit" className="absolute inset-y-0 right-2 pr-1">
-              <MagnifyingGlassIcon className=" ml-[-0.5rem]" />
+              <MagnifyingGlassIcon className="ml-[-0.5rem]" />
             </button>
           </div>
         </form>
       </div>
-      <div className="navBarItems flex gap-3">
-        <a href="#!" className="hover:text-[#9499ff]">
+      <div className="navBarItems flex items-center gap-3">
+        <a
+          href="#!"
+          className="rounded-full p-2 hover:bg-slate-300 dark:hover:bg-neutral-700"
+        >
           <CartIcon />
         </a>
-        <a href="#!" className="flex select-none gap-2 hover:text-[#9499ff]">
+        <a
+          href="#!"
+          className="focus:shadow-outline-blue flex select-none gap-2 rounded-full bg-blue-500 px-3 py-2 text-white transition duration-300 hover:bg-blue-600 focus:outline-none"
+        >
           <span>
             <UserCircleIcon />
           </span>
@@ -41,7 +49,7 @@ const NavigationBar = () => {
         </a>
         <button
           onClick={toggleDarkMode}
-          className="rounded-full"
+          className="rounded-full p-2 transition duration-300 ease-in-out hover:bg-slate-300 dark:hover:bg-neutral-700"
           aria-label="Dark/Light Mode Toggle"
         >
           {isDarkMode ? <MoonIcon /> : <SunIcon />}
