@@ -33,12 +33,12 @@ const NavigationBar = () => {
         <a href="#!" className="hover:text-[#9499ff]">
           <CartIcon />
         </a>
-        <div className="flex gap-2 hover:text-[#9499ff]">
+        <a href="#!" className="flex select-none gap-2 hover:text-[#9499ff]">
           <span>
             <UserCircleIcon />
           </span>
           Login / Register
-        </div>
+        </a>
         <button
           onClick={toggleDarkMode}
           className="rounded-full"
