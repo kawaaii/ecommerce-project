@@ -2,81 +2,105 @@ import { useState, useEffect, useMemo } from "react";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("pasal.json")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("pasal.json");
+        const data = await response.json();
         setProducts(data);
-        setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
-  // Memoized function to group products by category
   const groupedProducts = useMemo(() => {
-    const groupedProductsObj = {};
-    products.forEach((product) => {
+    return products.reduce((groupedProductsObj, product) => {
       const { category } = product;
-      if (!groupedProductsObj[category]) {
-        groupedProductsObj[category] = [];
-      }
-      groupedProductsObj[category].push(product);
-    });
-    return groupedProductsObj;
+      groupedProductsObj[category] = [
+        ...(groupedProductsObj[category] || []),
+        product,
+      ];
+      return groupedProductsObj;
+    }, {});
   }, [products]);
+
+  const truncateDescription = (description, maxLength) => {
+    if (description.length <= maxLength) {
+      return description;
+    }
+    return `${description.substring(0, maxLength)}...`;
+  };
+
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
+
+  const handleReadMore = (productId) => {
+    setExpandedDescriptions({
+      ...expandedDescriptions,
+      [productId]: true,
+    });
+  };
 
   return (
     <>
-      {loading ? (
+      {products.length === 0 ? (
         <p>Loading...</p>
       ) : (
         <section className="container flex flex-col gap-5">
           {Object.keys(groupedProducts).map((category) => (
-            <div className="flex flex-col gap-2" key={category}>
-              <strong>{category}</strong>
-              <div className="flex flex-wrap gap-4">
-                {groupedProducts[category].map((product) => (
-                  <div
-                    key={product.id}
-                    className="product-card w-50 flex flex-col gap-2 rounded-lg p-2 dark:bg-white dark:text-black"
-                  >
-                    <img
-                      src={product.image}
-                      className="mx-auto h-44 w-44"
-                      alt={product.title}
-                    />
-                    <h3>
-                      {product.brand && (
-                        <span className="flex flex-col">
-                          <strong className="text-center">
-                            {product.brand}
-                          </strong>
-                          <br /> {product.title}
-                        </span>
-                      )}
-                      {!product.brand && (
-                        <span className="font-medium">
-                          <strong>{product.title}</strong>
-                        </span>
-                      )}
-                    </h3>
-                    <p className="flex flex-row">
-                      <strong>Price: &nbsp;</strong>
-                      <div className="font-mono">
-                        ${product.price.toLocaleString()}
+            <div className="flex flex-col gap-4" key={category}>
+              <h2 className="text-2xl font-bold">{category}</h2>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {groupedProducts[category].map(
+                  ({ id, title, image, description, price, rating }) => (
+                    <div
+                      key={id}
+                      className="product-card dark:border-dark-gray flex flex-col gap-4 rounded-lg border border-gray-200 p-4 dark:bg-gray-800"
+                    >
+                      <img
+                        src={image}
+                        className="mx-auto h-44 w-44 rounded-md"
+                        alt={title}
+                      />
+                      <div className="flex flex-col items-center">
+                        <h3 className="mb-2 text-lg font-semibold">{title}</h3>
+                        <p className="mb-2 text-gray-700 dark:text-gray-300">
+                          {expandedDescriptions[id]
+                            ? description
+                            : truncateDescription(description, 150)}
+                        </p>
+                        {!expandedDescriptions[id] && (
+                          <button
+                            className="text-blue-500 hover:underline focus:outline-none"
+                            onClick={() => handleReadMore(id)}
+                          >
+                            Read More
+                          </button>
+                        )}
+                        <p className="font-bold text-green-600">
+                          ${price.toLocaleString()}
+                        </p>
+                        <div className="flex items-center">
+                          <span className="text-yellow-500">
+                            ★ {rating.rate}
+                          </span>
+                          <span className="ml-1 text-gray-500">
+                            ({rating.count} reviews)
+                          </span>
+                        </div>
+                        <button
+                          className="focus:shadow-outline-blue mt-2 rounded-full bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600 focus:outline-none"
+                          onClick={() => alert(`Added ${title} to cart`)}
+                        >
+                          Add to Cart
+                        </button>
                       </div>
-                    </p>
-                    <p>
-                      <strong>Rating: </strong>
-                      {product.rating.rate}
-                    </p>
-                  </div>
-                ))}
+                    </div>
+                  ),
+                )}
               </div>
             </div>
           ))}
