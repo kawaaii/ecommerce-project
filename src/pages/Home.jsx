@@ -43,7 +43,7 @@ const Home = () => {
                 {groupedProducts[category].map((product) => (
                   <div
                     key={product.id}
-                    className="product-card w-50 flex flex-col gap-2 rounded-lg p-2 dark:bg-white dark:text-black dark:text-white"
+                    className="product-card w-50 flex flex-col gap-2 rounded-lg p-2 dark:bg-white dark:text-black"
                   >
                     <img
                       src={product.image}
