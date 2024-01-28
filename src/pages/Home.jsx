@@ -54,9 +54,12 @@ const Home = () => {
             <div className="flex flex-col gap-4" key={category}>
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="text-2xl font-bold">{category}</h2>
-                <button className="text-blue-500 hover:underline focus:outline-none">
+                <a
+                  href={`/products/${category}`}
+                  className="text-blue-500 hover:underline focus:outline-none"
+                >
                   Shop More
-                </button>
+                </a>
               </div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {groupedProducts[category]

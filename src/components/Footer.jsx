@@ -12,20 +12,28 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-bold">Categories</h1>
-            <p className="text-sm text-gray-500">Electronics</p>
-            <p className="text-sm text-gray-500">Clothing</p>
-            <p className="text-sm text-gray-500">Jewelry</p>
+            <a href="/products/electronics" className="text-sm text-gray-500">
+              Electronics
+            </a>
+            <a href="/products/clothing" className="text-sm text-gray-500">
+              Clothing
+            </a>
+            <a href="/products/jewelry" className="text-sm text-gray-500">
+              Jewelry
+            </a>
           </div>
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-bold">Contact Us</h1>
-            <p className="text-sm text-gray-500">Email: info@hamropasal.com</p>
+            <p className="text-sm text-gray-500">
+              Email: support@hamropasal.com
+            </p>
             <p className="text-sm text-gray-500">Phone: +977-9856472838</p>
           </div>
         </div>
         <code className="text-center">
           © 2024 hamropasal.com All right reserved.
           <br />
-          Developed by Hridaya.
+          Site under development.
         </code>
       </section>
     </>
