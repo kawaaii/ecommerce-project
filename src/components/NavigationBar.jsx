@@ -10,7 +10,7 @@ const NavigationBar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <div className="fixed top-0 flex w-full items-center justify-between p-5 dark:bg-[#1e1e1e]">
+    <div className="fixed top-0 flex w-full items-center justify-between border-b border-black bg-slate-100 p-5 dark:border-white dark:bg-neutral-900">
       <div className="navBarLogo flex flex-row items-center gap-2">
         <ShopIcon className="text-5xl text-black dark:text-white" />
         <strong>Hamro Pasal</strong>
