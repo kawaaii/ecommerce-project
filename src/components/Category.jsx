@@ -28,22 +28,6 @@ const Category = () => {
     }, {});
   }, [products]);
 
-  const truncateDescription = (description, maxLength) => {
-    if (description.length <= maxLength) {
-      return description;
-    }
-    return `${description.substring(0, maxLength)}...`;
-  };
-
-  const [expandedDescriptions, setExpandedDescriptions] = useState({});
-
-  const handleReadMore = (productId) => {
-    setExpandedDescriptions({
-      ...expandedDescriptions,
-      [productId]: true,
-    });
-  };
-
   return (
     <>
       {products.length === 0 ? (
@@ -64,7 +48,7 @@ const Category = () => {
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {groupedProducts[category]
                   .slice(0, 4)
-                  .map(({ id, title, image, description, price, rating }) => (
+                  .map(({ id, title, image, price, rating }) => (
                     <div
                       key={id}
                       className="product-card dark:border-dark-gray flex flex-col gap-4 rounded-lg border border-gray-200 p-4 dark:bg-gray-800"
@@ -76,19 +60,6 @@ const Category = () => {
                       />
                       <div className="flex flex-col items-center">
                         <h3 className="mb-2 text-lg font-semibold">{title}</h3>
-                        <p className="mb-2 text-gray-700 dark:text-gray-300">
-                          {expandedDescriptions[id]
-                            ? description
-                            : truncateDescription(description, 150)}
-                        </p>
-                        {!expandedDescriptions[id] && (
-                          <button
-                            className="text-blue-500 hover:underline focus:outline-none"
-                            onClick={() => handleReadMore(id)}
-                          >
-                            Read More
-                          </button>
-                        )}
                         <p className="font-bold text-green-600">
                           ${price.toLocaleString()}
                         </p>
