@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import "./NavigationBar.css";
 
 import MagnifyingGlassIcon from "../../images/icons/MagnifyingGlassIcon";
@@ -6,24 +5,10 @@ import UserCircleIcon from "../../images/icons/UserCircleIcon";
 import SunIcon from "../../images/icons/SunIcon";
 import MoonIcon from "../../images/icons/MoonIcon";
 
+import { useDarkMode } from "../DarkMode";
+
 const NavigationBar = () => {
-  const [isDarkMode, setDarkMode] = useState(() => {
-    const storedTheme = localStorage.theme;
-    const prefersDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-
-    return storedTheme === "dark" || (!storedTheme && prefersDarkMode);
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDarkMode);
-    localStorage.theme = isDarkMode ? "dark" : "light";
-  }, [isDarkMode]);
-
-  const handleDarkModeToggle = () => {
-    setDarkMode(!isDarkMode);
-  };
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <>
@@ -48,13 +33,18 @@ const NavigationBar = () => {
             </div>
           </form>
         </div>
-        <div className="navBarItems flex flex-row gap-2">
-          <button className="hover:text-[#9499ff]">Login / Register</button>
-          <a href="#!" className="hover:text-[#9499ff]">
-            <UserCircleIcon />
-          </a>
+        <div className="navBarItems flex flex-row gap-3">
           <button
-            onClick={handleDarkModeToggle}
+            href="#!"
+            className="flex flex-row gap-2 hover:text-[#9499ff]"
+          >
+            <span>
+              <UserCircleIcon />
+            </span>
+            Login / Register
+          </button>
+          <button
+            onClick={toggleDarkMode}
             className="rounded-full"
             aria-label="Toggle Dark Mode"
           >
