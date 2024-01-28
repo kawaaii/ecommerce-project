@@ -33,7 +33,7 @@ const Category = () => {
       {products.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        <section className="container mt-10 flex flex-col gap-5">
+        <section className="container mt-10 flex flex-col gap-14">
           {Object.keys(groupedProducts).map((category) => (
             <div className="flex flex-col gap-4" key={category}>
               <div className="mb-3 flex items-center justify-between">
