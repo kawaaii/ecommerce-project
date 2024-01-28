@@ -1,11 +1,12 @@
 import "./NavigationBar.css";
 
 import MagnifyingGlassIcon from "../../images/icons/MagnifyingGlassIcon";
+import UserCircleIcon from "../../images/icons/UserCircleIcon";
 
 const NavigationBar = () => {
   return (
     <>
-      <nav className="container flex flex-row justify-evenly">
+      <nav className="container flex flex-row justify-between">
         <div className="navBarLogo">
           <img src="#!" alt="LOGO" />
         </div>
@@ -19,14 +20,19 @@ const NavigationBar = () => {
               />
               <button
                 type="submit"
-                className="absolute inset-y-0 right-0 pr-1 dark:text-white"
+                className="absolute inset-y-0 right-0 pr-1 "
               >
                 <MagnifyingGlassIcon />
               </button>
             </div>
           </form>
         </div>
-        <div className="navBarItems"></div>
+        <div className="navBarItems flex flex-row gap-2">
+          <button className="hover:text-[#9499ff]">Login / Register</button>
+          <a href="#!" className="hover:text-[#9499ff]">
+            <UserCircleIcon />
+          </a>
+        </div>
       </nav>
     </>
   );
