@@ -1,11 +1,9 @@
-import "./NavigationBar.css";
+import MagnifyingGlassIcon from "../images/icons/MagnifyingGlassIcon";
+import UserCircleIcon from "../images/icons/UserCircleIcon";
+import SunIcon from "../images/icons/SunIcon";
+import MoonIcon from "../images/icons/MoonIcon";
 
-import MagnifyingGlassIcon from "../../images/icons/MagnifyingGlassIcon";
-import UserCircleIcon from "../../images/icons/UserCircleIcon";
-import SunIcon from "../../images/icons/SunIcon";
-import MoonIcon from "../../images/icons/MoonIcon";
-
-import { useDarkMode } from "../DarkMode";
+import { useDarkMode } from "./DarkMode";
 
 const NavigationBar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -21,7 +19,7 @@ const NavigationBar = () => {
             <div className="relative">
               <input
                 type="text"
-                className="rounded text-black placeholder-black ring-1 ring-[#0b0c0f] dark:bg-neutral-900 dark:text-white dark:placeholder-white dark:ring-1 dark:ring-[#d1d1d1]"
+                className="rounded text-black placeholder-black ring-1 ring-[#0b0c0f] placeholder:text-center placeholder:decoration-transparent dark:bg-neutral-900 dark:text-white dark:placeholder-white dark:ring-1 dark:ring-[#d1d1d1]"
                 placeholder="WIP"
               />
               <button
