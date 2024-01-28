@@ -10,7 +10,7 @@ const NavigationBar = () => {
 
   return (
     <>
-      <nav className="container flex flex-row justify-between">
+      <section className="container flex flex-row justify-between">
         <div className="navBarLogo">
           <img src="#!" alt="LOGO" />
         </div>
@@ -49,7 +49,7 @@ const NavigationBar = () => {
             {isDarkMode ? <MoonIcon /> : <SunIcon />}
           </button>
         </div>
-      </nav>
+      </section>
     </>
   );
 };
