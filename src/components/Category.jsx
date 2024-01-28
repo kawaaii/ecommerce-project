@@ -45,21 +45,23 @@ const Category = () => {
                   Shop More
                 </a>
               </div>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {groupedProducts[category]
                   .slice(0, 4)
                   .map(({ id, title, image, price, rating }) => (
                     <div
                       key={id}
-                      className="product-card dark:border-dark-gray flex flex-col gap-4 rounded-lg border border-gray-200 p-4 dark:bg-gray-800"
+                      className="product-card flex flex-col gap-4 rounded-lg border border-gray-300 dark:border-none dark:bg-gray-800"
                     >
                       <img
                         src={image}
-                        className="mx-auto h-44 w-44 rounded-md"
+                        className="mx-auto h-60 w-full rounded-t-md bg-white object-contain p-5"
                         alt={title}
                       />
                       <div className="flex flex-col items-center">
-                        <h3 className="mb-2 text-lg font-semibold">{title}</h3>
+                        <h3 className="text-md mb-2 text-center font-semibold">
+                          {title}
+                        </h3>
                         <p className="font-bold text-green-600">
                           ${price.toLocaleString()}
                         </p>
@@ -72,7 +74,7 @@ const Category = () => {
                           </span>
                         </div>
                         <button
-                          className="focus:shadow-outline-blue mt-2 rounded-full bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600 focus:outline-none"
+                          className="focus:shadow-outline-blue mb-5 mt-8 rounded-full bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600 focus:outline-none"
                           onClick={() => alert(`Added ${title} to cart`)}
                         >
                           Add to Cart
