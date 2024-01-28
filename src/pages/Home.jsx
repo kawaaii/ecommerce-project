@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -49,7 +49,7 @@ const Home = () => {
       {products.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        <section className="container flex flex-col gap-5">
+        <section className="container mt-10 flex flex-col gap-5">
           {Object.keys(groupedProducts).map((category) => (
             <div className="flex flex-col gap-4" key={category}>
               <div className="mb-3 flex items-center justify-between">
