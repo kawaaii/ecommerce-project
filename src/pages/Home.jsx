@@ -75,10 +75,6 @@ const Home = () => {
                       <strong>Rating: </strong>
                       {product.rating.rate}
                     </p>
-                    <p>
-                      <strong>Total Reviews: </strong>
-                      {product.rating.count}
-                    </p>
                   </div>
                 ))}
               </div>
