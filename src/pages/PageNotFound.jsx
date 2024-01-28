@@ -2,8 +2,10 @@ const PageNotFound = () => {
   return (
     <>
       <main className="container flex flex-col items-center justify-center">
-        <div className="font-bold">404</div>
-        <div>Page Not Found</div>
+        <div className="flex flex-col items-center">
+          <p>404</p>
+          <p>Page Not Found</p>
+        </div>
       </main>
     </>
   );
