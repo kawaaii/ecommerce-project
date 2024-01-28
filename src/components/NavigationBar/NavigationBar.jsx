@@ -1,11 +1,42 @@
 import "./NavigationBar.css";
 
+function MagnifyingGlassIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="h-6 w-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+      />
+    </svg>
+  );
+}
+
 const NavigationBar = () => {
   return (
     <>
-      <nav className="flex flex-row justify-center">
+      <nav className="container flex flex-row justify-evenly">
         <div className="navBarLogo">
           <img src="#!" alt="LOGO" />
+        </div>
+        <div className="searchBar">
+          <form className="flex gap-1 align-middle" action="#!">
+            <input
+              type="text"
+              className="rounded text-black placeholder-black ring-1 ring-[#0b0c0f] dark:bg-neutral-900 dark:text-white dark:placeholder-white dark:ring-1 dark:ring-[#d1d1d1]"
+              placeholder="WIP"
+            />
+            <button type="submit" className="dark:text-white">
+              <MagnifyingGlassIcon />
+            </button>
+          </form>
         </div>
         <div className="navBarItems"></div>
       </nav>

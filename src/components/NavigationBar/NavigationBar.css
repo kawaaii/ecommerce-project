@@ -1,0 +1,11 @@
+input::placeholder {
+  text-align: center;
+}
+
+/* input:hover::placeholder {
+  color: transparent;
+} */
+
+input:focus::placeholder {
+  color: transparent;
+}
