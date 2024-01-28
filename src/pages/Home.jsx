@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -52,10 +52,16 @@ const Home = () => {
         <section className="container flex flex-col gap-5">
           {Object.keys(groupedProducts).map((category) => (
             <div className="flex flex-col gap-4" key={category}>
-              <h2 className="text-2xl font-bold">{category}</h2>
+              <div className="mb-3 flex items-center justify-between">
+                <h2 className="text-2xl font-bold">{category}</h2>
+                <button className="text-blue-500 hover:underline focus:outline-none">
+                  Shop More
+                </button>
+              </div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {groupedProducts[category].map(
-                  ({ id, title, image, description, price, rating }) => (
+                {groupedProducts[category]
+                  .slice(0, 4)
+                  .map(({ id, title, image, description, price, rating }) => (
                     <div
                       key={id}
                       className="product-card dark:border-dark-gray flex flex-col gap-4 rounded-lg border border-gray-200 p-4 dark:bg-gray-800"
@@ -99,8 +105,7 @@ const Home = () => {
                         </button>
                       </div>
                     </div>
-                  ),
-                )}
+                  ))}
               </div>
             </div>
           ))}
