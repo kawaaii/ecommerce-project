@@ -62,7 +62,7 @@ const Category = () => {
                         <h3 className="text-md mb-2 text-center font-semibold">
                           {title}
                         </h3>
-                        <p className="font-bold text-green-600">
+                        <p className="font-mono font-bold text-green-600">
                           ${price.toLocaleString()}
                         </p>
                         <div className="flex items-center">
