@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <section className="container my-20 flex flex-col gap-5">
+      <footer className="container my-20 flex flex-col gap-5">
         <div className="top-footer flex flex-row justify-between">
           <div className="flex w-96 flex-col gap-2 ">
             <h1 className="text-2xl font-bold">Hamro Pasal</h1>
@@ -35,7 +35,7 @@ const Footer = () => {
           <br />
           Site under development.
         </code>
-      </section>
+      </footer>
     </>
   );
 };
