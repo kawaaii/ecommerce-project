@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
+import UserLogin from "./pages/UserLogin";
 
 import "./index.css";
 
@@ -18,6 +19,7 @@ function App() {
             <section className="flex flex-1 pt-20">
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/user/login" element={<UserLogin />} />
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
             </section>

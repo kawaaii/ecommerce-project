@@ -39,7 +39,7 @@ const NavigationBar = () => {
           <CartIcon />
         </a>
         <a
-          href="#!"
+          href="/user/login"
           className="focus:shadow-outline-blue flex select-none gap-2 rounded-full bg-blue-500 px-3 py-2 text-white transition duration-300 hover:bg-blue-600 focus:outline-none"
         >
           <span>
