@@ -76,7 +76,7 @@ const UserLogin = () => {
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{" "}
             <a
-              href="#"
+              href="/user/create"
               className="font-semibold leading-6 text-blue-500 hover:text-blue-400"
             >
               Start a 14 day free trial

@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 import UserLogin from "./pages/UserLogin";
+import UserCreate from "./pages/UserCreate";
 
 import "./index.css";
 
@@ -20,6 +21,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/user/login" element={<UserLogin />} />
+                <Route path="/user/create" element={<UserCreate />} />
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
             </section>
