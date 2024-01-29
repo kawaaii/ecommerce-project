@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 
 const Category = () => {
   const [products, setProducts] = useState([]);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +18,31 @@ const Category = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const preloadImages = () => {
+      const imagePromises = products.map((product) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = product.image;
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      });
+
+      Promise.all(imagePromises)
+        .then(() => {
+          setImagesLoaded(true);
+        })
+        .catch((error) => {
+          console.error("Error preloading images:", error);
+        });
+    };
+
+    if (products.length > 0) {
+      preloadImages();
+    }
+  }, [products]);
+
   const groupedProducts = useMemo(() => {
     return products.reduce((groupedProductsObj, product) => {
       const { category } = product;
@@ -31,7 +57,7 @@ const Category = () => {
 
   return (
     <>
-      {products.length === 0 ? (
+      {!imagesLoaded || products.length === 0 ? (
         <p>Loading...</p>
       ) : (
         <section className="container mt-10 flex flex-col gap-14">
