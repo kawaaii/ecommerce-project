@@ -79,7 +79,7 @@ const UserLogin = () => {
               href="/user/create"
               className="font-semibold leading-6 text-blue-500 hover:text-blue-400"
             >
-              Start a 14 day free trial
+              Register now.
             </a>
           </p>
         </div>
