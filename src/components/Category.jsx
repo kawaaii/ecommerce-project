@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 
 const Category = () => {
   const [products, setProducts] = useState([]);
@@ -55,6 +55,10 @@ const Category = () => {
     }, {});
   }, [products]);
 
+  const handleAddToCart = useCallback((title) => {
+    alert(`Added ${title} to cart`);
+  }, []);
+
   return (
     <>
       {!imagesLoaded || products.length === 0 ? (
@@ -105,7 +109,7 @@ const Category = () => {
                           </div>
                           <button
                             className="focus:shadow-outline-blue mb-5 mt-8 rounded-full bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600 focus:outline-none"
-                            onClick={() => alert(`Added ${title} to cart`)}
+                            onClick={() => handleAddToCart(title)}
                           >
                             Add to Cart
                           </button>
