@@ -1,12 +1,17 @@
+import { lazy, Suspense } from "react";
 import Category from "../components/Category";
-import Testimonials from "../components/Testimonials";
+
+const Testimonials = lazy(() => import("../components/Testimonials"));
 
 const Home = () => {
   return (
     <>
       <section>
         <Category />
-        <Testimonials />
+
+        <Suspense>
+          <Testimonials />
+        </Suspense>
       </section>
     </>
   );
