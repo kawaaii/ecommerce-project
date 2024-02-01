@@ -9,6 +9,7 @@ import UserLogin from "./pages/UserLogin";
 import UserCreate from "./pages/UserCreate";
 
 import "./index.css";
+import WorkInProgress from "./pages/WorkInProgress";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/user/login" element={<UserLogin />} />
                 <Route path="/user/create" element={<UserCreate />} />
                 <Route path="*" element={<PageNotFound />} />
+                <Route path="/wip" element={<WorkInProgress />} />
               </Routes>
             </section>
           </Router>
