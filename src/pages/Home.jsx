@@ -8,7 +8,6 @@ const Home = () => {
     <>
       <section>
         <Category />
-
         <Suspense fallback={<div>Loading testimonials...</div>}>
           <Testimonials />
         </Suspense>
