@@ -29,6 +29,7 @@ const NavigationBar = () => {
                 type="text"
                 className="h-9 w-72 rounded-full text-center text-black placeholder-black ring-1 ring-[#0b0c0f] placeholder:text-center placeholder:decoration-transparent dark:bg-neutral-900 dark:text-white dark:placeholder-white dark:ring-1 dark:ring-[#d1d1d1]"
                 placeholder="Work In Progress"
+                name="SearchBarInputField"
               />
               <button
                 type="submit"
