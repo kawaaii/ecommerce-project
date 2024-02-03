@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   const [products, setProducts] = useState([]);
@@ -56,7 +57,7 @@ const Category = () => {
   }, [products]);
 
   const handleAddToCart = useCallback((title) => {
-    alert(`Added ${title} to cart`);
+    alert(`Redirecting to cart with ${title} added to cart.`);
   }, []);
 
   return (
@@ -83,8 +84,9 @@ const Category = () => {
                   {groupedProducts[categoryName]
                     .slice(0, 4)
                     .map(({ id, title, image, price, rating }) => (
-                      <div
+                      <Link
                         key={id}
+                        to={`/product/${id}`}
                         className="product-card flex flex-col gap-4 rounded-lg border border-gray-300 dark:border-none dark:bg-gray-800"
                       >
                         <img
@@ -114,7 +116,7 @@ const Category = () => {
                             Add to Cart
                           </a>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                 </div>
               </div>
