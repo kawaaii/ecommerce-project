@@ -74,7 +74,7 @@ const Category = () => {
                   <h2 className="text-2xl font-bold">{categoryName}</h2>
                   <a
                     href={`/products/${categorySection}`}
-                    className="text-blue-500 hover:underline focus:outline-none"
+                    className="text-blue-600 hover:underline focus:outline-none"
                   >
                     Shop More
                   </a>
@@ -108,7 +108,7 @@ const Category = () => {
                             </span>
                           </div>
                           <button
-                            className="focus:shadow-outline-blue mb-5 mt-8 rounded-full bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600 focus:outline-none"
+                            className="focus:shadow-outline-blue mb-5 mt-8 rounded-full bg-blue-600 px-4 py-2 text-white transition duration-300 hover:bg-blue-700 focus:outline-none"
                             onClick={() => handleAddToCart(title)}
                           >
                             Add to Cart
