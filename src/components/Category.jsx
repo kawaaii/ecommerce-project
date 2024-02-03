@@ -107,12 +107,12 @@ const Category = () => {
                               ({rating.count} reviews)
                             </span>
                           </div>
-                          <button
-                            className="focus:shadow-outline-blue mb-5 mt-8 rounded-full bg-blue-600 px-4 py-2 text-white transition duration-300 hover:bg-blue-700 focus:outline-none"
+                          <a
+                            className="focus:shadow-outline-blue mb-5 mt-8 select-none rounded-full bg-blue-600 px-4 py-2 text-white transition duration-300 hover:bg-blue-700 focus:outline-none"
                             onClick={() => handleAddToCart(title)}
                           >
                             Add to Cart
-                          </button>
+                          </a>
                         </div>
                       </div>
                     ))}

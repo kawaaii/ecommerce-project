@@ -37,12 +37,9 @@ const NavigationBar = () => {
           </form>
         </div>
         <div className="navBarItems flex items-center gap-3">
-          <a
-            href="#!"
-            className="rounded-full p-2 hover:bg-slate-300 dark:hover:bg-neutral-700"
-          >
+          <button className="rounded-full p-2 hover:bg-slate-300 dark:hover:bg-neutral-700">
             <CartIcon />
-          </a>
+          </button>
           <a
             href="/user/login"
             className="focus:shadow-outline-blue flex select-none gap-2 rounded-full bg-blue-500 px-3 py-2 text-white transition duration-300 hover:bg-blue-600 focus:outline-none"
