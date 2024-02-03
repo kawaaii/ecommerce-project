@@ -27,7 +27,7 @@ const BrandPartners = () => {
               <img
                 src={partner.image}
                 alt={`Brand ${partner.id}`}
-                className="h-full w-full transform grayscale transition duration-300 hover:scale-110 group-hover:grayscale-0"
+                className="h-full w-full transform object-contain grayscale transition duration-300 hover:scale-110 group-hover:grayscale-0"
               />
             </div>
           ))}
