@@ -31,8 +31,12 @@ const Testimonials = () => {
           Here is what our customer tells about us!
         </p>
       </div>
-      {loading && <p>Loading testimonials...</p>}
-      {error && <p className="text-red-500">{error}</p>}
+      {loading && <p style={{ minHeight: "100px" }}>Loading testimonials...</p>}
+      {error && (
+        <p className="text-red-500" style={{ minHeight: "100px" }}>
+          {error}
+        </p>
+      )}
       <div className="testimonial-cards flex flex-row gap-4">
         {testimonialsData.map((testimonial) => (
           <div
@@ -43,6 +47,7 @@ const Testimonials = () => {
             <div className="testimonial-card__image mt-5">
               <img
                 src={testimonial.photo_url}
+                loading="lazy"
                 alt={`${testimonial.first_name} ${testimonial.last_name}`}
                 className="h-20 w-20 rounded-full"
               />
