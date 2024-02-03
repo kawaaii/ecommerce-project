@@ -57,7 +57,7 @@ const Category = () => {
   }, [products]);
 
   const handleAddToCart = useCallback((title) => {
-    alert(`Redirecting to cart with ${title} added to cart.`);
+    alert(`Added ${title} to cart`);
   }, []);
 
   return (
@@ -73,12 +73,12 @@ const Category = () => {
               <div className="flex flex-col gap-4" key={categoryName}>
                 <div className="mb-3 flex items-center justify-between">
                   <h2 className="text-2xl font-bold">{categoryName}</h2>
-                  <a
-                    href={`/products/${categorySection}`}
+                  <Link
+                    to={`/products/${categorySection}`}
                     className="text-blue-600 hover:underline focus:outline-none"
                   >
                     Shop More
-                  </a>
+                  </Link>
                 </div>
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {groupedProducts[categoryName]
@@ -109,12 +109,12 @@ const Category = () => {
                               ({rating.count} reviews)
                             </span>
                           </div>
-                          <a
+                          <button
                             className="focus:shadow-outline-blue mb-5 mt-8 select-none rounded-full bg-blue-600 px-4 py-2 text-white transition duration-300 hover:bg-blue-700 focus:outline-none"
                             onClick={() => handleAddToCart(title)}
                           >
                             Add to Cart
-                          </a>
+                          </button>
                         </div>
                       </Link>
                     ))}
