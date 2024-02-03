@@ -22,7 +22,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="container mx-auto mt-10 flex flex-col items-center gap-10 rounded-lg border bg-slate-100 p-5 pb-10 ring-black dark:border-none dark:bg-[#1c2737]">
+    <section className="container relative z-10 mx-auto mt-10 flex flex-col items-center gap-10 rounded-lg border bg-slate-100 p-5 pb-10 ring-black dark:border-none dark:bg-[#1c2737]">
       <div className="header mt-4 flex flex-col items-center gap-2">
         <p className="text-xl font-bold text-[#3917ea] dark:text-blue-600">
           Our Testimonials

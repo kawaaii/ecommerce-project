@@ -11,7 +11,7 @@ const NavigationBar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <div className="fixed top-0 flex w-full flex-col gap-5 border-b border-black bg-slate-100 p-3 dark:border-white dark:bg-neutral-900">
+    <div className="fixed top-0 z-50 flex w-full flex-col gap-5 border-b border-black bg-slate-100 p-3 dark:border-white dark:bg-neutral-900">
       <div className="topHeader">
         <TopHeader />
       </div>
