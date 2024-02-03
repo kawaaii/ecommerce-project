@@ -64,7 +64,7 @@ const Category = () => {
       {!imagesLoaded || products.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        <section className="container mt-10 flex flex-col gap-14">
+        <section className="container mt-20 flex flex-col gap-14">
           {Object.keys(groupedProducts).map((categoryName) => {
             const categorySection =
               groupedProducts[categoryName][0].category.section;
