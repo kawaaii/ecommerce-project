@@ -28,6 +28,6 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "react-router-dom": "^6.21.3",
     "tailwindcss": "^3.4.1",
-    "vite": "^5.0.12"
+    "vite": "^5.0.13"
   }
 }
